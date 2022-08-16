@@ -1,0 +1,494 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--color-text);
+    font-family: 'Kanit', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    transition: .3s;
+}
+
+ul li {
+    list-style: none;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --color-primary: #222831;
+    --color-second: #393E46;
+    --color-button: #FF0000;
+    --color-text: #EEEEEE;
+    --color-button2: #FF0000;
+}
+
+nav {
+    background: var(--color-primary);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    align-items: center;
+    transition: .3s;
+}
+
+nav .logo img {
+    width: 30px;
+}
+
+nav.smartphone {
+    display: none;
+}
+
+nav ul li {
+    display: inline-flex;
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li::before {
+    content: '';
+    width: 100%;
+    border: 1px solid white;
+    bottom: 0;
+    position: absolute;
+    transform: translateX(-100%);
+    transition: .3s;
+}
+
+nav ul li:hover::before {
+    transform: translateX(0);
+}
+
+header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 100px 50px 0 50px;
+}
+
+header {
+    display: flex;
+}
+
+header .judul {
+    margin-top: 70px;
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+}
+
+header .judul span {
+    font-size: 1.3em;
+    background: linear-gradient(var(--color-button), var(--color-button2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header .judul b.skill {
+    font-size: 3.5em;
+    color: white;
+    margin-bottom: 5px;
+}
+
+header .judul .button {
+    margin-top: 100px;
+    padding: 10px;
+}
+
+header .judul a::before {
+    content: '';
+    background: linear-gradient(to right, var(--color-button), var(--color-button2));
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: .3s;
+    transform: translateX(0px);
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+header .judul a {
+    overflow: hidden;
+    /* background: linear-gradient(to right, var(--color-button), var(--color-button2)); */
+    padding: 20px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid white;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+header .judul a:hover::before {
+    transform: translateX(-100%);
+}
+
+header .myprofile {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+header .myprofile img {
+    width: 250px;
+    filter: drop-shadow(2px -24px 30px black);
+}
+
+article {
+    padding: 50px;
+    background-color: var(--color-second);
+}
+
+article.about.me {
+    display: grid;
+    grid-template-areas: "judul judul" "deskripsi profile";
+}
+
+article.about.me .judul {
+    grid-area: judul;
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+article.about.me .judul span {
+    border-bottom: 1px solid white;
+}
+
+article.about.me .deskripsi {
+    grid-area: deskripsi;
+}
+
+article.about.me .profile {
+    grid-area: profile;
+    background-color: white;
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+article.about.me .nama {
+    color: var(--color-primary)
+}
+
+article.about.me .content {
+    display: flex;
+}
+
+article.about.me .deskripsi {
+    margin-top: 100px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+article.about.me .deskripsi a {
+    background-color: var(--color-button);
+    padding: 10px 70px;
+    width: fit-content;
+    display: inline-flex;
+    border: 1px solid white;
+    margin-top: 50px;
+    animation: light infinite 1s ease-in-out;
+}
+
+@keyframes light {
+    0%,
+    100% {
+        box-shadow: 0 0 0 var(--color-button2) 0;
+    }
+    50% {
+        box-shadow: 0 0 10px var(--color-button2);
+    }
+}
+
+article.about.me .profile .image {
+    background-color: var(--color-second);
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+article.about.me img {
+    width: 250px;
+    display: inline-block;
+    padding: 0;
+    box-sizing: unset;
+}
+
+article.myproject {
+    background-color: var(--color-primary);
+    display: grid;
+    grid-template-areas: "judul judul judul" "videoJJ web design" "videoJJ logo ui " "promotion promotion promotion";
+}
+
+.myproject .project {
+    /* background-color: orange; */
+    margin: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.myproject .project .judulProject {
+    text-align: center;
+}
+
+.myproject .project a {
+    border: 1px solid white;
+    padding: 5px 15px;
+    color: var(--color-text);
+    margin-top: 10px;
+    transition: .3s;
+    position: relative;
+    z-index: 2;
+    overflow: hidden
+}
+
+.myproject .project a::before {
+    content: '';
+    background: linear-gradient(to right, var(--color-button), var(--color-button2));
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: .3s;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.myproject .project a:hover::before {
+    transform: translateX(-100%);
+}
+
+.myproject .project a:hover ::before {
+    transform: translateX(-100%);
+}
+
+.project img,
+.project video {
+    width: 300px;
+    border: 1px solid white;
+}
+
+.myproject .judul {
+    grid-area: judul;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.myproject .web {
+    grid-area: web;
+}
+
+.myproject .videoJJ {
+    grid-area: videoJJ;
+}
+
+.myproject .videoJJ video {
+    width: 250px;
+}
+
+.myproject .design {
+    grid-area: design;
+}
+
+.myproject .logo {
+    grid-area: logo;
+}
+
+.myproject .ui {
+    grid-area: ui;
+}
+
+.myproject .promotion {
+    grid-area: promotion;
+    background-color: var(--color-second);
+    padding: 40px;
+    margin-top: 40px;
+    background: linear-gradient(to right, var(--color-button), var(--color-button2));
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.myproject .promotion .judulProject {
+    font-size: 1.3em;
+}
+
+.myproject .promotion a {
+    background-color: white;
+    color: var(--color-button)
+}
+
+.myproject .promotion a::before {
+    display: none;
+}
+
+footer {
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    margin-top: 10px;
+}
+
+footer .nama,
+footer ul,
+footer .sosialmedia,
+footer p {
+    margin-bottom: 20px;
+}
+
+footer ul {
+    display: flex;
+}
+
+footer ul li {
+    transition: .3s;
+}
+
+footer ul li:hover a {
+    color: var(--color-button2);
+}
+
+footer .sosialmedia a {
+    margin: 0 10px;
+    border: 1px solid white;
+    border-radius: 50%;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s;
+}
+
+footer .sosialmedia a i {
+    transition: .2s;
+}
+
+footer .sosialmedia a:hover {
+    background-color: white;
+}
+
+footer .sosialmedia a:hover i {
+    color: var(--color-primary)
+}
+
+footer p {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+@media (max-width: 500px) {
+    nav {
+        position: fixed;
+        z-index: 98;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    nav .logo img {
+        width: 100px;
+    }
+    nav.smartphone {
+        display: inline-block;
+        width: 100%;
+        z-index: 99;
+        height: fit-content;
+        background-color: transparent;
+        font-size: 1.5em;
+        position: fixed;
+        top: 0;
+    }
+    nav.smartphone i {
+        cursor: pointer;
+        padding: 10px;
+        background: var(--color-primary);
+        box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+        transition: .3s;
+    }
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 70px;
+    }
+    nav ul li {
+        margin: 0;
+        margin-bottom: 50px;
+        justify-content: center;
+    }
+    nav.desktop {
+        transform: translateY(-100%);
+    }
+    nav.desktop.active {
+        transform: translateY(0);
+    }
+    nav.smartphone i.active2 {
+        transform: rotate(90deg);
+    }
+    header {
+        height: 100vh;
+    }
+    header .myprofile {
+        display: none;
+    }
+    header .judul {
+        margin-top: 0;
+    }
+    header .judul .button {
+        margin-top: 20px;
+    }
+    article.about.me {
+        display: grid;
+        grid-template-areas: "judul" "profile" "deskripsi";
+    }
+    article.about.me .deskripsi,
+    article.about.me .profile {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    article.about.me .deskripsi {
+        margin-top: 20px;
+    }
+    article.myproject {
+        grid-template-areas: "judul" "videoJJ" "web" "design" "logo" "ui" "promotion";
+    }
+    .myproject .web,
+    .myproject .videoJJ,
+    .myproject .design,
+    .myproject .logo,
+    .myproject .ui,
+    .myproject .promotion {
+        margin-bottom: 70px;
+    }
+    footer {
+        padding: 60px 40px;
+    }
+    footer ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    footer ul li {
+        margin: 5px 0;
+    }
+}
